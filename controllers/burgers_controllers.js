@@ -19,17 +19,18 @@ router.get("/", function(req, res) {
 
 // Post method to add a new burger in the database
 router.post("/", function (req, res) {
-    var newBurger = req.body.burger_name;
-    burger.insertOne(newBurger, function () {
-        res.redirect("/");
+    var newBurger = req.body.burger_name; //The new burger
+
+    burger.insertOne(newBurger, function () { // Once the insert is donr
+        res.redirect("/");                    // redirect to the homepage
     });
 });
 
-// Put ethod to update a burger in the database
+// Put method to update a burger in the database
 router.put("/:id", function (req, res) {
     var id = req.params.id;//Get the id of the burger we want to update
 
-    burger.updateOne(id, function () {//Once teh update is done,
+    burger.updateOne(id, function () {//Once the update is done,
         res.redirect("/");            // redirect to the homepage
     });
 });

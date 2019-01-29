@@ -1,7 +1,9 @@
-<h1>Eat Da Burger!</h1>
+<h1 class="text-center title">Eat Da Burger!</h1>
 <br>
 
+
 <div id = 'burgersList'>
+    {{!-- Display the list of burgers with a devoured value equal to false--}}
     <h2> Burgers waiting to be devoured!</h2>
     <hr>
     <ul>
@@ -9,8 +11,12 @@
             {{#unless this.devoured}}
             <li>
                 {{this.id}}.{{this.burger_name}}
+
+                {{!-- Using the method_override npm library for the PUT --}}
+                {{!-- DISCLAIMER: https://dev.to/moz5691/method-override-for-put-and-delete-in-html-3fp2 --}}
+                {{!-- Tried to use the week14/Activity17 class activities but didn't understand how it works --}}
                 <form action="/{{this.id}}?_method=PUT" method="POST">
-                    {{!-- <input type="hidden" name="devoured" value="false"> --}}
+                    <input type="hidden" name="_method" value="PUT">
                     <button class="btn btn-warning devourBtn" type="submit">Devour it!</button>
                 </form>
             </li>
@@ -19,27 +25,10 @@
     </ul>
 </div>
 
- {{!-- <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
- <button type="button" class="eatburger btn btn-warning" id ="eatbutton" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span class="fa fa-cutlery"></span></button>
- <hr> --}}
-
-{{!-- <ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul> --}}
-
-{{!-- <ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul> --}}
 
 <div id='devouredBurgers'>
+    {{!-- Display the burgers with devoured value equal to true --}}
+    {{!-- The burgers are displayed in a line --}}
     <h2>These were delicious: </h2>
     <hr>
     <ul>
@@ -53,12 +42,13 @@
     </ul>
 </div>
 
+{{!-- To add a new burger --}}
 <div id='addABurger'>
     <p>Enter a burger you want to eat.</p>
     <p>Click the "Submit" button</p>
     <form class="create-form" method="POST">
         <div class="form-group">
-            <label for="bu">Burger Name:</label>
+            <label for="bu"></label>
             <input type="text" id="bu" name="burger_name">
         </div>
 

@@ -1,7 +1,8 @@
 var express = require("express");
 
 //DISCLAIMER: the addition of the npm library method-override has been found
-//----------  on stackoverflow as a possible solution when the put request is not working
+//----------  on internet: https://dev.to/moz5691/method-override-for-put-and-delete-in-html-3fp2
+// as a possible solution when the put request is not working
 //""'method-override' allows us to use PUT or DELETE in places where the client doesn't support it"
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
