@@ -6,6 +6,7 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 // Create the router for the app
+// Get method to display all the burgers in the database
 router.get("/", function(req, res) {
     burger.selectAll(function(data) {
         var bObject = {
@@ -16,16 +17,7 @@ router.get("/", function(req, res) {
     });
 });
 
-// router.post("api/burgers", function(req, res) {
-//     burger.insertOne([
-//         "burger_name", "devoured"
-//     ], [
-//         req.body.burger_name, req.body.devoured
-//     ], function(result) {
-//         res.json({ id: result.id });
-//     });
-// });
-
+// Post method to add a new burger in the database
 router.post("/", function (req, res) {
     var newBurger = req.body.burger_name;
     burger.insertOne(newBurger, function () {
@@ -33,19 +25,14 @@ router.post("/", function (req, res) {
     });
 });
 
-router.put("api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
-    console.log("Condition", condition);
+// Put ethod to update a burger in the database
+router.put("/:id", function (req, res) {
+    var id = req.params.id;//Get the id of the burger we want to update
 
-    burger.updateOne({
-        devoured: req.body.devoured
-    }, condition, function(result) {
-        if (result.changedRows == 0) {
-            return res.status(404).end();
-        } else {
-            res.status(200).end();
-        }
+    burger.updateOne(id, function () {//Once teh update is done,
+        res.redirect("/");            // redirect to the homepage
     });
 });
 
+// Exports the router
 module.exports = router;

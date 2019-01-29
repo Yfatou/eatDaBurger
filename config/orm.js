@@ -110,6 +110,7 @@ var orm = {
     // },
     updateOne: function (id, cb) {
         var queryString = "UPDATE burgers SET devoured = true WHERE id = ?";
+        console.log(queryString);
         connection.query(queryString, [id], function (err, result) {
             if (err) {
                 throw err;

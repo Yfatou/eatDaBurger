@@ -1,0 +1,45 @@
+
+body { 
+  /* background:  url(https://media.giphy.com/media/3o6EhPDMjaDP5UC4ZW/giphy.gif) no-repeat center center fixed;  */
+  background-image: url('../img/burger_background.gif');
+  /* background-size: cover; */
+  width: 100%;
+  height: 100%;
+}
+/* h1{
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 3em;
+  margin: .2em .5em;
+  color: rgba(0,0,0, 0.3);
+} */
+/* body {
+    height: 100%;
+} */
+
+#burgersList {
+    float: left;
+    margin-right: 6%;
+    margin-left: 10%; 
+}
+
+#devouredBurgers {
+    float: left;
+}
+
+li {
+    font-size: 20px;
+    list-style-type: none;
+}
+
+#addABurger {
+    clear: both;
+    margin-left: 25%;
+}
+
+.devourBtn {
+    margin-bottom: 3%;
+}
+
+form {
+    display: inline;
+}
