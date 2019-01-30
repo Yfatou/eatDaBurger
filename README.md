@@ -3,7 +3,7 @@
 ## Description
 eatDaBurger is a burger logger app.
 
-The app is deployed to Heroku via this link: 
+The app is deployed to Heroku via this link: https://glacial-falls-63921.herokuapp.com/
 
 It lists all the burgers available in the menu (ie the mySQL database) to the user with a "Devour it" button.
 Once the user click on the button, the burger is devoured and moved to the list of already devoured burgers ("These were delicious" list).
