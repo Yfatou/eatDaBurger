@@ -21,7 +21,7 @@ router.get("/", function(req, res) {
 router.post("/", function (req, res) {
     var newBurger = req.body.burger_name; //The new burger
 
-    burger.insertOne(newBurger, function () { // Once the insert is donr
+    burger.insertOne(newBurger, function () { // Once the insert is done
         res.redirect("/");                    // redirect to the homepage
     });
 });
